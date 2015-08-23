@@ -1,11 +1,6 @@
 /**
  * Created by nick on 8/23/15.
  */
-
-//This file is used to interpret commands from a server and execute them on this endpoint, which is a raspberry pi
-//Execute this on a Raspberry Pi, assure that the proper setup procedures in piSetup.sh have been executed
-
-
 var url = require('url');
 var http = require('http');
 var cp = require('child_process');
@@ -77,7 +72,8 @@ function commit(command, source) {
         outletLetter = outlets[i][0];
         outletGPIO = outlets[i][1];
 
-        input = parsedObject = url.parse(command,true).query[outletLetter];
+        //Get the input value [1 or 0]
+        input = url.parse(command,true).query[outletLetter];
 
         //Set the plain english on/off
         if (input == 1){onoff=" off";}else{onoff=" on";}
@@ -88,7 +84,7 @@ function commit(command, source) {
             //Execute command
             cp.execSync(shell)
 
-            //Leave for debugging
+            //Print to Console
             cl(
                 "Client on " +
                 source +

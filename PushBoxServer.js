@@ -1,10 +1,6 @@
 /**
  * Created by nick on 8/23/15.
  */
-
-//This file is used as a hub to connect clients and endpoints together over the internet
-//Run it on a web server which is accessible on the internet
-
 //HTTP Module used for client > server connections
 var http = require('http');
 
@@ -25,7 +21,7 @@ var ioEndpoint = require('socket.io').listen(endpointPort);
 ioEndpoint.sockets.on('connection', function (socket) {
     cl("Endpoint Connected");
     socket.on('disconnect', function() {
-        console.log('Endpoint Disconnected');
+        cl('Endpoint Disconnected');
     });
 });
 //------------------------------------------------

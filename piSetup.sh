@@ -8,7 +8,6 @@
 
 #Assure that the GPIO pins are correct for your model
 
-
 cd /sys/class/gpio/
 ARR=("21" "20" "26" "16" "19" "13" "6" "5")
 for i in "${ARR[@]}"
