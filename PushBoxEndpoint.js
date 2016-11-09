@@ -19,9 +19,6 @@ outlets.push(['h',5]);
 //Because console.log(); gets annoying
 function cl(s){console.log(s);}
 
-
-
-
 //Remote Server Items
 //------------------------------------------------
 //Connect to webserver
@@ -43,9 +40,6 @@ socket.on('command', function (data) {
 });
 //------------------------------------------------
 
-
-
-
 //Local Server Items
 //------------------------------------------------
 //Create local server
@@ -60,9 +54,6 @@ var localServer = http.createServer(function(request, response) {
 });
 //------------------------------------------------
 
-
-
-
 //Execute Outlet Changes
 //------------------------------------------------
 function commit(command, source) {
@@ -76,8 +67,9 @@ function commit(command, source) {
         input = url.parse(command,true).query[outletLetter];
 
         //Set the plain english on/off
-        if (input == 1){onoff=" off";}else{onoff=" on";}
-
+        //if (input == 1){onoff=" off";}else{onoff=" on";}
+        //This is neater, still need to test
+        onoff = input ? "off" : "on"
         if (input != undefined) {
             //Define the command to run
             var shell = 'echo ' + input + ' > /sys/class/gpio/gpio' + outletGPIO + '/value';
@@ -96,8 +88,6 @@ function commit(command, source) {
     }
 }
 //------------------------------------------------
-
-
 
 //Finish loading and start server
 localServer.listen(3000);
