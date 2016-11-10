@@ -25,6 +25,6 @@ node /home/pi/pushbox/pushbox.js
 
 
 #Flash the light so I know boot is complete
-echo 0 > /sys/class/gpio/gpio21/value
-sleep 1
-echo 1 > /sys/class/gpio/gpio21/value
+#echo 0 > /sys/class/gpio/gpio21/value
+#sleep 1
+#echo 1 > /sys/class/gpio/gpio21/value
