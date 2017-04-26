@@ -27,6 +27,11 @@ ioEndpoint.sockets.on('connection', function (socket) {
 //Client Interface
 //------------------------------------------------
 function handleRequest(request, response){
+    var seconds = new Date().getTime() / 1000;
+    var myDate = new Date(seconds * 1000);
+
+    console.log("Command |", request.url, "| sent at: ", myDate.toLocaleString());
+
     //Send data to endpoint
     ioEndpoint.emit('command', {
         cmd: request.url
