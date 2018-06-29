@@ -4,7 +4,7 @@
 PushBox is a way to send commands between two devices over a local network or the internet. Such as a command from your phone to control your lights at home. 
 
 
-![alt tag] (http://i.imgur.com/GTs0988l.png)
+![alt tag](http://i.imgur.com/GTs0988l.png)
 
 ## Architecture
 
